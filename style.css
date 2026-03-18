@@ -211,7 +211,7 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.72s var(--ease), transform 0.72s var(--ease);
-  animation: revealFallback 0.72s var(--ease) 0.3s forwards;
+  animation: revealFallback 0.8s ease 0.2s forwards;
 }
 
 @keyframes revealFallback {
@@ -223,6 +223,12 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
   transform: translateY(0);
   animation: none;
 }
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* =============================================
    NAVBAR
    ============================================= */
@@ -768,7 +774,7 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
   align-items: center;
   justify-content: center;
   font-size: 2.4rem;
-  background: linear-gradient(135deg, attr(data-color), var(--bg3));
+  background: linear-gradient(135deg, #067D85, var(--bg3));
 }
 
 /* Overlay */
@@ -1677,3 +1683,14 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
 .process-grid .proc-step:nth-child(4)   { transition-delay: 0.06s; }
 .process-grid .proc-step:nth-child(5)   { transition-delay: 0.12s; }
 .process-grid .proc-step:nth-child(6)   { transition-delay: 0.18s; }
+
+
+/* === REVEAL SAFETY NET === */
+/* In case JS never fires, force all reveals visible after 1s */
+@media (min-width: 1px) {
+  .hero-right.reveal,
+  .hero-left .reveal,
+  .hero-content .reveal {
+    animation: revealFallback 0.8s ease 0.3s forwards;
+  }
+}
