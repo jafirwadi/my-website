@@ -378,6 +378,7 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
   grid-template-columns: 1fr 1fr;
   gap: 72px;
   align-items: flex-start;
+  padding-top: 40px;
 }
 
 /* ---- Hero Left ---- */
