@@ -781,7 +781,7 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
 .proj-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(6, 125, 133, 0.88);
+  background: rgba(6, 125, 133, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
