@@ -745,7 +745,7 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
   box-shadow: var(--teal-glow);
 }
 
-.proj-card.hidden { display: visible; }
+.proj-card.hidden { display: none; }
 
 /* Thumbnail */
 .proj-thumb {
@@ -763,18 +763,6 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
 
 .proj-card:hover .proj-thumb img {
   transform: scale(1.06);
-}
-
-/* Placeholder if image missing */
-.proj-thumb::before {
-  content: attr(data-label);
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.4rem;
-  background: linear-gradient(135deg, #067D85, var(--bg3));
 }
 
 /* Overlay */
