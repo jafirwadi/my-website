@@ -745,7 +745,7 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
   box-shadow: var(--teal-glow);
 }
 
-.proj-card.hidden { display: none; }
+.proj-card.hidden { display: visible; }
 
 /* Thumbnail */
 .proj-thumb {
