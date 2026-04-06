@@ -313,7 +313,7 @@ if (backTop) {
     btn.disabled = true;
 
     try {
-      const response = await fetch(form.action, {
+      const response = await fetch('https://formspree.io/f/xwvwajjw', {
         method: 'POST',
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
