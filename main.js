@@ -287,14 +287,14 @@ if (backTop) {
    CONTACT FORM
    =========================== */
 (function initForm() {
-  const form = $('#contactForm');
-  const btn  = $('#submitBtn');
+  const form = document.getElementById('contactForm');
+  const btn  = document.getElementById('submitBtn');
   if (!form || !btn) return;
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    // Simple validation
+    // Basic validation
     const name  = form.querySelector('[name="name"]').value.trim();
     const email = form.querySelector('[name="email"]').value.trim();
     const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -308,18 +308,39 @@ if (backTop) {
       return;
     }
 
-    // Simulate success
+    // Send to Formspree
     const orig = btn.innerHTML;
-    btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Message Sent!';
-    btn.style.background = '#0aad6e';
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
     btn.disabled = true;
 
-    setTimeout(() => {
-      btn.innerHTML = orig;
-      btn.style.background = '';
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Message Sent!';
+        btn.style.background = '#0aad6e';
+        form.reset();
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 4000);
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (err) {
+      btn.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Failed — Try Again';
+      btn.style.background = '#e63946';
       btn.disabled = false;
-      form.reset();
-    }, 3500);
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.style.background = '';
+      }, 3500);
+    }
   });
 
   function showFormError(input, msg) {
