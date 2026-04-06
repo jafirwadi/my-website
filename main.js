@@ -308,8 +308,7 @@ if (backTop) {
       return;
     }
 
-    // Send to Formspree
-    const orig = btn.innerHTML;
+    // Loading state
     btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
     btn.disabled = true;
 
@@ -321,14 +320,44 @@ if (backTop) {
       });
 
       if (response.ok) {
-        btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Message Sent!';
-        btn.style.background = '#0aad6e';
-        form.reset();
-        setTimeout(() => {
-          btn.innerHTML = orig;
-          btn.style.background = '';
-          btn.disabled = false;
-        }, 4000);
+        // Replace entire form with success message
+        const wrap = form.closest('.contact-form-wrap') || form.parentElement;
+        wrap.innerHTML = `
+          <div style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 40px;
+            gap: 20px;
+          ">
+            <div style="
+              width: 72px; height: 72px;
+              background: rgba(0,255,148,0.1);
+              border: 2px solid #00FF94;
+              border-radius: 50%;
+              display: flex; align-items: center; justify-content: center;
+              font-size: 2rem;
+              animation: revealFallback 0.5s ease forwards;
+            ">✓</div>
+            <h3 style="font-family: var(--font-head); font-size: 1.6rem; font-weight: 800;">
+              Message Sent!
+            </h3>
+            <p style="color: var(--grey); font-size: 0.95rem; line-height: 1.75; max-width: 340px;">
+              Thanks <strong style="color: white;">${name}</strong>, I've received your message and will get back to you within <strong style="color: white;">24 hours</strong>.
+            </p>
+            <a href="https://wa.me/8801680799597" target="_blank" rel="noopener" style="
+              display: inline-flex; align-items: center; gap: 8px;
+              background: #25D366; color: #fff;
+              padding: 12px 26px; border-radius: 50px;
+              font-weight: 600; font-size: 0.9rem;
+              text-decoration: none; margin-top: 8px;
+            ">
+              <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+          </div>
+        `;
       } else {
         throw new Error('Server error');
       }
@@ -337,7 +366,7 @@ if (backTop) {
       btn.style.background = '#e63946';
       btn.disabled = false;
       setTimeout(() => {
-        btn.innerHTML = orig;
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
         btn.style.background = '';
       }, 3500);
     }
