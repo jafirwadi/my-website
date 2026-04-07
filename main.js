@@ -294,7 +294,6 @@ if (backTop) {
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    // Basic validation
     const name  = form.querySelector('[name="name"]').value.trim();
     const email = form.querySelector('[name="email"]').value.trim();
     const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -308,69 +307,60 @@ if (backTop) {
       return;
     }
 
-    // Loading state
     btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
     btn.disabled = true;
 
-    try {
-      const response = await fetch('https://formspree.io/f/xwvwajjw', {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
+    const formData = new FormData(form);
 
-      if (response.ok) {
-        // Replace entire form with success message
-        const wrap = form.closest('.contact-form-wrap') || form.parentElement;
-        wrap.innerHTML = `
-          <div style="
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 40px;
-            gap: 20px;
-          ">
-            <div style="
-              width: 72px; height: 72px;
-              background: rgba(0,255,148,0.1);
-              border: 2px solid #00FF94;
-              border-radius: 50%;
-              display: flex; align-items: center; justify-content: center;
-              font-size: 2rem;
-              animation: revealFallback 0.5s ease forwards;
-            ">✓</div>
-            <h3 style="font-family: var(--font-head); font-size: 1.6rem; font-weight: 800;">
-              Message Sent!
-            </h3>
-            <p style="color: var(--grey); font-size: 0.95rem; line-height: 1.75; max-width: 340px;">
-              Thanks <strong style="color: white;">${name}</strong>, I've received your message and will get back to you within <strong style="color: white;">24 hours</strong>.
-            </p>
-            <a href="https://wa.me/8801680799597" target="_blank" rel="noopener" style="
-              display: inline-flex; align-items: center; gap: 8px;
-              background: #25D366; color: #fff;
-              padding: 12px 26px; border-radius: 50px;
-              font-weight: 600; font-size: 0.9rem;
-              text-decoration: none; margin-top: 8px;
-            ">
-              <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
-            </a>
-          </div>
-        `;
+    fetch('https://formspree.io/f/xwvwajjw', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(response) {
+      return response.json().then(function(data) {
+        return { status: response.status, data: data };
+      });
+    })
+    .then(function(result) {
+      if (result.status === 200) {
+        showSuccess(name);
       } else {
-        throw new Error('Server error');
+        throw new Error('Failed');
       }
-    } catch (err) {
+    })
+    .catch(function() {
       btn.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Failed — Try Again';
       btn.style.background = '#e63946';
       btn.disabled = false;
-      setTimeout(() => {
+      setTimeout(function() {
         btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
         btn.style.background = '';
       }, 3500);
-    }
+    });
   });
+
+  function showSuccess(name) {
+    const wrap = document.querySelector('.contact-form-wrap');
+    if (!wrap) return;
+    wrap.innerHTML = [
+      '<div style="display:flex;flex-direction:column;align-items:center;',
+      'justify-content:center;text-align:center;padding:60px 40px;gap:20px;">',
+      '<div style="width:72px;height:72px;background:rgba(0,255,148,0.1);',
+      'border:2px solid #00FF94;border-radius:50%;display:flex;',
+      'align-items:center;justify-content:center;font-size:2rem;color:#00FF94;">✓</div>',
+      '<h3 style="font-size:1.6rem;font-weight:800;">Message Sent!</h3>',
+      '<p style="color:rgba(255,255,255,0.62);font-size:0.95rem;line-height:1.75;max-width:340px;">',
+      'Thanks <strong style="color:white;">' + name + '</strong>, I\'ve received your message ',
+      'and will get back to you within <strong style="color:white;">24 hours</strong>.</p>',
+      '<a href="https://wa.me/8801680799597" target="_blank" rel="noopener" ',
+      'style="display:inline-flex;align-items:center;gap:8px;background:#25D366;',
+      'color:#fff;padding:12px 26px;border-radius:50px;font-weight:600;',
+      'font-size:0.9rem;text-decoration:none;">',
+      '<i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>',
+      '</div>'
+    ].join('');
+  }
 
   function showFormError(input, msg) {
     input.style.borderColor = '#ff6b6b';
@@ -382,7 +372,7 @@ if (backTop) {
     err.style.cssText = 'font-size:0.75rem;color:#ff6b6b;margin-top:3px;display:block;';
     err.textContent = msg;
     input.after(err);
-    setTimeout(() => {
+    setTimeout(function() {
       input.style.borderColor = '';
       err.remove();
     }, 2800);
