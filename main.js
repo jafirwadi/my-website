@@ -444,3 +444,44 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.opacity = '1';
   });
 });
+
+/* =============================================
+   SECTION SCROLL ANIMATIONS
+   ============================================= */
+(function initScrollAnimations() {
+  const targets = [
+    '.marquee-section',
+    '.section-head',
+    '.proj-card',
+    '.svc-card',
+    '.testi-card',
+    '.proc-step',
+    '.process-note',
+    '.inspire-inner',
+    '.cinfo-item',
+    '.contact-form-wrap',
+    '.footer-brand',
+    '.footer-col',
+    '.filter-bar',
+    '.projects-more',
+    '.process-cta',
+  ];
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  targets.forEach(function(sel) {
+    document.querySelectorAll(sel).forEach(function(el) {
+      observer.observe(el);
+    });
+  });
+})();
