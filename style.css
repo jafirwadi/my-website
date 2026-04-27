@@ -513,14 +513,13 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
 /* ---- Hero Right / Photo ---- */
 .hero-right {
   display: flex;
-  position: fixed;
-  top: 90px;
   justify-content: center;
   align-items: center;
 }
 
 .hero-img-frame {
-  position: relative;
+  position: fixed;
+  top: 90px;
   width: 400px;
   height: 460px;
 }
