@@ -1684,3 +1684,202 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
     animation: revealFallback 0.8s ease 0.3s forwards;
   }
 }
+
+/* =============================================
+   SCROLL ANIMATIONS
+   ============================================= */
+
+/* --- Marquee --- */
+.marquee-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.marquee-section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Section heads --- */
+.section-head .section-tag {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+}
+.section-head.in-view .section-tag {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section-head .section-title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+}
+.section-head.in-view .section-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section-head .section-desc {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease 0.35s, transform 0.6s ease 0.35s;
+}
+.section-head.in-view .section-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Project cards — slide up with stagger --- */
+.proj-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease,
+              border-color 0.3s, box-shadow 0.3s;
+}
+.proj-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.proj-card:nth-child(1) { transition-delay: 0.05s; }
+.proj-card:nth-child(2) { transition-delay: 0.15s; }
+.proj-card:nth-child(3) { transition-delay: 0.25s; }
+.proj-card:nth-child(4) { transition-delay: 0.05s; }
+.proj-card:nth-child(5) { transition-delay: 0.15s; }
+.proj-card:nth-child(6) { transition-delay: 0.25s; }
+.proj-card:nth-child(7) { transition-delay: 0.05s; }
+
+/* --- Service cards — slide in from left/right alternating --- */
+.svc-card {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease, transform 0.6s ease,
+              border-color 0.3s, box-shadow 0.3s;
+}
+.svc-card:nth-child(even) {
+  transform: translateX(30px);
+}
+.svc-card.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+.svc-card:nth-child(1) { transition-delay: 0.05s; }
+.svc-card:nth-child(2) { transition-delay: 0.12s; }
+.svc-card:nth-child(3) { transition-delay: 0.19s; }
+.svc-card:nth-child(4) { transition-delay: 0.05s; }
+.svc-card:nth-child(5) { transition-delay: 0.12s; }
+.svc-card:nth-child(6) { transition-delay: 0.19s; }
+
+/* --- Testimonial cards — scale up --- */
+.testi-card {
+  opacity: 0;
+  transform: scale(0.94) translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease,
+              border-color 0.3s;
+}
+.testi-card.in-view {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.testi-card:nth-child(1) { transition-delay: 0.08s; }
+.testi-card:nth-child(2) { transition-delay: 0.2s;  }
+.testi-card:nth-child(3) { transition-delay: 0.08s; }
+.testi-card:nth-child(4) { transition-delay: 0.2s;  }
+
+/* --- Process steps — slide up with number pop --- */
+.proc-step {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.65s ease, transform 0.65s ease,
+              border-color 0.3s, box-shadow 0.3s;
+}
+.proc-step.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.proc-step:nth-child(1) { transition-delay: 0.05s; }
+.proc-step:nth-child(2) { transition-delay: 0.13s; }
+.proc-step:nth-child(3) { transition-delay: 0.21s; }
+.proc-step:nth-child(4) { transition-delay: 0.05s; }
+.proc-step:nth-child(5) { transition-delay: 0.13s; }
+.proc-step:nth-child(6) { transition-delay: 0.21s; }
+
+/* --- Process note --- */
+.process-note {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+}
+.process-note.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Inspire section — fade in from bottom --- */
+.inspire-inner {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.inspire-inner.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Contact info items — slide from left --- */
+.cinfo-item {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.cinfo-item.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+.cinfo-item:nth-child(1) { transition-delay: 0.05s; }
+.cinfo-item:nth-child(2) { transition-delay: 0.15s; }
+.cinfo-item:nth-child(3) { transition-delay: 0.25s; }
+
+/* --- Contact form — slide from right --- */
+.contact-form-wrap {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s;
+}
+.contact-form-wrap.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Footer brand + cols --- */
+.footer-brand {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.footer-brand.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.footer-col {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.footer-col.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.footer-col:nth-child(1) { transition-delay: 0.1s; }
+.footer-col:nth-child(2) { transition-delay: 0.2s; }
+.footer-col:nth-child(3) { transition-delay: 0.3s; }
+
+/* --- Filter bar --- */
+.filter-bar {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+}
+.filter-bar.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
