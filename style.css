@@ -514,7 +514,10 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
 .hero-right {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
 }
 
 .hero-img-frame {
@@ -1534,8 +1537,11 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
   :root { --pad-x: 28px; }
 
   .hero-content {
-    grid-template-columns: 1fr;
-    gap: 52px;
+    display: grid;    
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: flex-start;
+    padding-top: 40px;
   }
 
   .hero-right { display: none; }
