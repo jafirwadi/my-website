@@ -310,7 +310,7 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
 .hero {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: start;
   padding: 120px 0 80px;
   position: relative;
   overflow: hidden;
@@ -357,7 +357,7 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 72px;
-  align-items: flex-start;
+  align-items: start;
   padding-top: 40px;
 }
 
@@ -497,7 +497,6 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
   align-items: flex-start;
   position: sticky;
   top: 100px;
-  align-self: flex-start;
 }
 
 .hero-img-frame {
