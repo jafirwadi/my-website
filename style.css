@@ -310,7 +310,7 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
 .hero {
   min-height: 100vh;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   padding: 120px 0 80px;
   position: relative;
   overflow: hidden;
@@ -495,8 +495,6 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  position: sticky;
-  top: 100px;
 }
 
 .hero-img-frame {
