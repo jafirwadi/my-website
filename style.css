@@ -498,7 +498,6 @@ input, textarea, select { font-family: inherit; font-size: 0.9rem; }
 }
 
 .hero-img-frame {
-  position: fixed;
   top: 90px;
   width: 400px;
   height: 460px;
