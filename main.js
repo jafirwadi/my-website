@@ -452,19 +452,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const targets = [
     '.marquee-section',
     '.section-head',
+    '.filter-bar',
     '.proj-card',
     '.svc-card',
     '.testi-card',
-    '.proc-step',
     '.process-note',
+    '.proc-step',
+    '.process-cta',
     '.inspire-inner',
     '.cinfo-item',
+    '.cinfo-socials',
     '.contact-form-wrap',
     '.footer-brand',
     '.footer-col',
-    '.filter-bar',
     '.projects-more',
-    '.process-cta',
   ];
 
   const observer = new IntersectionObserver(function(entries) {
@@ -475,13 +476,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0,
+    rootMargin: '0px 0px -20px 0px'
   });
 
   targets.forEach(function(sel) {
     document.querySelectorAll(sel).forEach(function(el) {
-      observer.observe(el);
+      // If already in viewport on load, add in-view immediately
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('in-view');
+      } else {
+        observer.observe(el);
+      }
     });
   });
 })();
