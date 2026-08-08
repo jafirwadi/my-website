@@ -79,6 +79,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
   // Hamburger toggle
   function openMenu() {
+    if (!hamburger || !navLinks) return;
     hamburger.classList.add('active');
     navLinks.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
@@ -88,6 +89,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   }
 
   function closeMenu() {
+    if (!hamburger || !navLinks) return;
     hamburger.classList.remove('active');
     navLinks.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
@@ -96,13 +98,15 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     document.body.style.overflow = '';
   }
 
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.contains('open') ? closeMenu() : openMenu();
-  });
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.contains('open') ? closeMenu() : openMenu();
+    });
 
-  overlay.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
 
-  $$('.nav-link').forEach(link => link.addEventListener('click', closeMenu));
+    $$('.nav-link').forEach(link => link.addEventListener('click', closeMenu));
+  }
 })();
 
 /* ===========================
@@ -181,34 +185,25 @@ function setActiveLink() {
    PROJECT FILTER
    =========================== */
 (function initFilter() {
-  const btns  = $$('.flt-btn');
-  const cards = $$('.proj-card');
+  const filterBar = $('.filter-bar');
+  const cards     = $$('.proj-card');
+  if (!filterBar || !cards.length) return;
 
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  filterBar.addEventListener('click', e => {
+    const btn = e.target.closest('.flt-btn');
+    if (!btn) return;
 
-      const filter = btn.getAttribute('data-filter');
+    $$('.flt-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
 
-      cards.forEach(card => {
-        const cats = card.getAttribute('data-cat') || '';
-        const show = filter === 'all' || cats.split(' ').includes(filter);
+    const filter = btn.getAttribute('data-filter');
 
-        if (show) {
-          card.style.display = '';
-          // Trigger re-reveal after a micro-tick
-          requestAnimationFrame(() => card.classList.remove('hidden'));
-        } else {
-          card.classList.add('hidden');
-          // Actually hide after transition
-          setTimeout(() => {
-            if (card.classList.contains('hidden')) {
-              card.style.display = 'none';
-            }
-          }, 300);
-        }
-      });
+    cards.forEach(card => {
+      const cats = (card.getAttribute('data-cat') || '').trim().split(/\s+/);
+      const show = filter === 'all' || cats.includes(filter);
+
+      card.classList.toggle('hidden', !show);
+      card.style.display = show ? '' : 'none';
     });
   });
 })();
