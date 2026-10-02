@@ -94,7 +94,7 @@ To connect this site:
 1. Copy `.env.example` to `.env`.
 2. Replace `YOUR_FORM_ID` with the ID from your Formspree form endpoint.
 3. Run `npm run dev` to check the form locally.
-4. Deploy the updated site. For the existing `npm run deploy` workflow, build and deploy from the same environment that has `.env`.
+4. For GitHub Pages, add a repository Actions variable named `VITE_FORMSPREE_ENDPOINT` with your Formspree endpoint. The workflow passes it to the production build.
 
 Keep `.env` private; it is ignored by Git. The Formspree form ID is included in the public build, so it is not a secret. The form also supports Telegram notifications through Formspree's dashboard integrations.
 ## The testimonials world map — action needed
@@ -122,21 +122,12 @@ brief. When you're ready for real pages:
 
 ## Deploy to GitHub Pages
 
-1. Create a new GitHub repo and push this project to it.
-2. In the repo's **Settings → Pages**, set **Source** to
-   **GitHub Actions**. The included workflow
-   (`.github/workflows/deploy.yml`) builds and deploys automatically
-   on every push to `main` — no extra config needed, since
-   `vite.config.js` already uses a relative base path.
-3. First deploy takes a couple of minutes; the URL appears in the
-   **Actions** tab and in **Settings → Pages** once it's live.
-
-If you'd rather deploy by hand instead of via Actions:
-
-```bash
-npm run build
-npm run deploy   # requires: git remote set to your GitHub repo
-```
+Set the repository's **Settings → Pages → Build and deployment → Source**
+to **GitHub Actions**. The `.github/workflows/deploy.yml` workflow runs
+`npm ci`, builds `dist`, and deploys it whenever changes are pushed to
+`main`. Add `VITE_FORMSPREE_ENDPOINT` under **Settings → Secrets and
+variables → Actions → Variables** to enable the production contact form.
+The deployment URL appears in the **Actions** run and **Settings → Pages**.
 
 ## A few decisions worth knowing about
 
