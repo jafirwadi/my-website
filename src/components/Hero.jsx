@@ -43,7 +43,7 @@ export default function Hero() {
             ))}
           </h1>
 
-          <motion.p variants={item} className="mt-6 max-w-[46ch] font-sans text-[18px] leading-relaxed text-cream/80">
+          <motion.p variants={item} className="mx-auto mt-6 max-w-[46ch] font-sans text-[18px] leading-relaxed text-cream/80 lg:mx-0">
             {hero.sub}
           </motion.p>
 
