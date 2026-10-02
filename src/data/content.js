@@ -197,7 +197,7 @@ export const projects = [
     description: 'Co-founded design agency website — bold visual storytelling, service showcasing, pricing tiers, and a full team portfolio built to win client trust fast.',
     result: 'A complete brand system: positioning, pricing tiers and case studies in one cohesive site.',
     href: 'https://buraqlab.com/',
-  },  
+  },
   {
     name: 'Mentara',
     imageKey: 'mentara',
@@ -206,7 +206,7 @@ export const projects = [
     description: 'A mental-health and wellness landing page rebuilt in light mode from a dark-themed reference — 13 sections, zero framework dependencies, accessibility built in from the start.',
     result: 'A CSS variable system that lets the whole page be retheme-d fast.',
     href: 'https://jafirwadi.github.io/mentara-white/',
-  },  
+  },
   {
     name: 'Synster Platform',
     imageKey: 'synster',

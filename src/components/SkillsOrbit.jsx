@@ -80,7 +80,7 @@ export default function SkillsOrbit() {
         {/* Desktop orbital system */}
         <div className="relative mx-auto mt-4 hidden h-[680px] w-[680px] place-items-center lg:grid">
 
-          {/* 
+          {/*
             IMPORTANT:
             This container rotates around the center.
             The individual labels inside it counter-rotate,
@@ -105,7 +105,7 @@ export default function SkillsOrbit() {
                     transform: 'translate(-50%, -50%)',
                   }}
                 >
-                  {/* 
+                  {/*
                     This inner element counter-rotates against
                     the orbit-ring so the text/icon stays upright.
                   */}

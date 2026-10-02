@@ -24,7 +24,7 @@ const logos = {
   'howtodiscuss': howtodiscuss,
   'gold-ira': goldIra,
   'richmond-denture': richmondDenture,
-  
+
 }
 
 export default function ClientStrip() {
