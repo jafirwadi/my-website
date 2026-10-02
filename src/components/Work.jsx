@@ -48,7 +48,7 @@ function ProjectCard({ project, image }) {
         <img
           src={image}
           alt={`${project.name} — screenshot`}
-          className="aspect-[16/11] w-full bg-cream/5 object-contain lg:aspect-auto lg:h-full lg:min-h-full"
+          className="aspect-[16/11] w-full bg-cream/5 object-cover lg:aspect-auto lg:h-full lg:min-h-full lg:object-contain"
         />
 
         <div className="flex flex-col justify-start bg-cream/[0.04] p-8 md:p-12">

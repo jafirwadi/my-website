@@ -13,6 +13,30 @@ import outcomes from '../assets/positioning/outcomes.webp'
 // to swap in a real photo for that pillar — no code change needed.
 const images = { strategist, 'anxious-moment': anxiousMoment, performance, specialist, outcomes }
 
+function PillarDetails({ pillar, isActive }) {
+  const Icon = iconMap[pillar.icon]
+
+  return (
+    <>
+      <span
+        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${
+          isActive ? 'border-gold text-gold' : 'border-cream/20 text-cream/50'
+        }`}
+      >
+        <Icon />
+      </span>
+      <span>
+        <h3 className={`font-serif text-[22px] font-semibold transition-colors duration-300 ${isActive ? 'text-cream' : 'text-cream/80'}`}>
+          {pillar.title}
+        </h3>
+        <p className="mt-1.5 max-w-[46ch] font-sans text-[1rem] leading-relaxed text-cream/70">
+          {pillar.body}
+        </p>
+      </span>
+    </>
+  )
+}
+
 export default function Positioning() {
   const [active, setActive] = useState(0)
 
@@ -38,8 +62,30 @@ export default function Positioning() {
           </p>
         </motion.div>
 
-        <div className="mt-6 grid gap-6 border-t border-cream/10 pt-4 md:mt-20 md:gap-14 md:pt-16 md:grid-cols-[0.75fr_1.25fr]">
-          <div className="hidden md:block">
+        <div className="mt-6 border-t border-cream/10 pt-4 lg:mt-20 lg:grid lg:grid-cols-[0.75fr_1.25fr] lg:gap-14 lg:border-t-0 lg:pt-16">
+          <div className="grid gap-6 md:gap-8 lg:hidden">
+            {pillars.map((pillar, i) => (
+              <motion.article
+                key={pillar.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                className="overflow-hidden rounded-sm border border-cream/10 bg-cream/[0.03]"
+              >
+                <img
+                  src={images[pillar.imageKey]}
+                  alt={pillar.title}
+                  className="h-64 w-full bg-cream/5 object-contain sm:h-72 md:h-80"
+                />
+                <div className="flex items-start gap-4 border-t border-cream/10 px-4 py-5 sm:px-6">
+                  <PillarDetails pillar={pillar} isActive={i === active} />
+                </div>
+              </motion.article>
+            ))}
+          </div>
+
+          <div className="hidden lg:block">
             <div className="sticky top-28">
               <AnimatePresence mode="wait">
                 <motion.img
@@ -56,9 +102,8 @@ export default function Positioning() {
             </div>
           </div>
 
-          <div className="flex flex-col divide-y divide-cream/10 border-y border-cream/10 md:border-none md:divide-y-0 md:gap-2">
+          <div className="hidden flex-col divide-y divide-cream/10 border-y border-cream/10 lg:flex lg:border-none lg:divide-y-0 lg:gap-2">
             {pillars.map((pillar, i) => {
-              const Icon = iconMap[pillar.icon]
               const isActive = i === active
               return (
                 <motion.button
@@ -73,21 +118,7 @@ export default function Positioning() {
                     isActive ? 'md:border-gold/30 md:bg-cream/[0.05]' : 'hover:md:bg-cream/[0.03]'
                   }`}
                 >
-                  <span
-                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${
-                      isActive ? 'border-gold text-gold' : 'border-cream/20 text-cream/50'
-                    }`}
-                  >
-                    <Icon />
-                  </span>
-                  <span>
-                    <h3 className={`font-serif text-[22px] font-semibold transition-colors duration-300 ${isActive ? 'text-cream' : 'text-cream/80'}`}>
-                      {pillar.title}
-                    </h3>
-                    <p className="mt-1.5 max-w-[46ch] font-sans text-[1rem] leading-relaxed text-cream/70">
-                      {pillar.body}
-                    </p>
-                  </span>
+                  <PillarDetails pillar={pillar} isActive={isActive} />
                 </motion.button>
               )
             })}
