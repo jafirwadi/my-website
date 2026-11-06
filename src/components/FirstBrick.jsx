@@ -21,7 +21,7 @@ export default function FirstBrick() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto w-full max-w-[280px] overflow-hidden rounded-sm border border-gold-deep/25"
+          className="mx-auto w-full max-w-[280px] overflow-hidden rounded-[6px] border border-gold-deep/25 md:rounded-[7px] lg:rounded-[8px]"
         >
           <img
             src={firstBrickLogo}
@@ -38,7 +38,7 @@ export default function FirstBrick() {
         >
           <div className="text-center md:text-left">
           <p className="font-sans text-[1.125rem] tracking-wide2 text-gold-deep">{firstBrick.eyebrow}</p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold text-forest sm:text-4xl">
+          <h2 className="mt-3 font-serif text-3xl font-normal text-forest sm:text-4xl">
             {firstBrick.tagline}
           </h2>
           <p className="mt-5 max-w-xl font-sans text-[1.125rem] leading-relaxed text-forest/70">{firstBrick.body}</p>
@@ -53,7 +53,7 @@ export default function FirstBrick() {
             href={firstBrick.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-sm border border-gold-deep/60 px-8 py-4 font-sans text-lg font-bold text-gold-deep transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:bg-forest hover:text-cream hover:shadow-[0_10px_28px_-8px_rgba(27,58,45,0.4)] active:scale-95 md:mx-0"
+            className="group mx-auto mt-8 inline-flex items-center justify-center gap-2 rounded-[8px] border border-gold-deep/60 px-8 py-[18px] font-sans text-lg font-bold text-gold-deep transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:bg-forest hover:text-cream hover:shadow-[0_10px_28px_-8px_rgba(27,58,45,0.4)] active:scale-95 md:mx-0"
           >
             <SwapText label={firstBrick.cta.label} hoverLabel={firstBrick.cta.hoverLabel} icon={ArrowUpRightIcon} />
           </a>

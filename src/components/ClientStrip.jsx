@@ -41,7 +41,7 @@ export default function ClientStrip() {
                 alt={`${item.name} logo`}
                 className="h-8 w-8 shrink-0 rounded-full object-contain p-0.5"
               />
-              <span className="whitespace-nowrap font-serif text-base text-forest/65">{item.name}</span>
+              <span className="whitespace-nowrap font-serif text-base font-normal text-forest/65">{item.name}</span>
             </div>
           )}
         />

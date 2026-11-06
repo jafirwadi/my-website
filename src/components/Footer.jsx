@@ -79,7 +79,7 @@ export default function Footer() {
 
       <p
         aria-hidden="true"
-        className="select-none whitespace-nowrap pb-2 text-center font-serif font-semibold leading-none text-cream/[0.05]"
+        className="select-none whitespace-nowrap pb-2 text-center font-serif font-normal leading-none text-cream/[0.05]"
         style={{ fontSize: 'clamp(4rem, 16vw, 11rem)' }}
       >
         TANZIM

@@ -97,6 +97,14 @@ export const SearchIcon = (p) => (
     <path d="M20 20l-4.8-4.8" />
   </svg>
 )
+export const WorkflowIcon = (p) => (
+  <svg viewBox="0 0 24 24" width="20" height="20" {...base} {...p}>
+    <circle cx="6" cy="7" r="2.2" />
+    <circle cx="18" cy="7" r="2.2" />
+    <circle cx="12" cy="17" r="2.2" />
+    <path d="M8 7h8M7.5 8.8L10.8 15M16.5 8.8L13.2 15" />
+  </svg>
+)
 export const BagIcon = (p) => (
   <svg viewBox="0 0 24 24" width="20" height="20" {...base} {...p}>
     <path d="M6 8h12l1 12H5z" />
@@ -169,6 +177,7 @@ export const iconMap = {
   layers: LayersIcon,
   bolt: BoltIcon,
   search: SearchIcon,
+  workflow: WorkflowIcon,
   bag: BagIcon,
   target: TargetIcon,
   heart: HeartPulseIcon,

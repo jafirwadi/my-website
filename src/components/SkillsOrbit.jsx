@@ -118,14 +118,14 @@ export default function SkillsOrbit() {
           </div>
 
           {/* Static center heading */}
-          <p className="relative z-10 max-w-xs text-balance text-center font-serif text-[2.2rem] font-semibold leading-snug text-forest">
+          <p className="relative z-10 max-w-xs text-balance text-center font-serif text-[2.2rem] font-normal leading-snug text-forest">
             One toolkit, chosen on purpose for every build.
           </p>
         </div>
 
         {/* Mobile: keep the existing clean staggered layout */}
         <div className="lg:hidden">
-          <p className="mx-auto mt-4 max-w-xs text-balance text-center font-serif text-[2.2rem] font-semibold leading-snug text-forest">
+          <p className="mx-auto mt-4 max-w-xs text-balance text-center font-serif text-[2.2rem] font-normal leading-snug text-forest">
             One toolkit, chosen on purpose for every build.
           </p>
 

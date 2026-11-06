@@ -26,7 +26,7 @@ function PillarDetails({ pillar, isActive }) {
         <Icon />
       </span>
       <span>
-        <h3 className={`font-serif text-[22px] font-semibold transition-colors duration-300 ${isActive ? 'text-cream' : 'text-cream/80'}`}>
+        <h3 className={`font-serif text-[22px] font-normal transition-colors duration-300 ${isActive ? 'text-cream' : 'text-cream/80'}`}>
           {pillar.title}
         </h3>
         <p className="mt-1.5 max-w-[46ch] font-sans text-[1rem] leading-relaxed text-cream/70">
@@ -52,7 +52,7 @@ export default function Positioning() {
           <p className="font-sans text-[1.125rem] tracking-wide2 text-gold">{positioning.eyebrow}</p>
 
           <blockquote className="mt-6 max-w-3xl">
-            <p className="font-serif text-[32px] italic leading-snug text-cream balance sm:text-[42px] md:text-[2.9rem]">
+            <p className="font-serif text-[32px] font-normal italic leading-snug text-cream balance sm:text-[42px] md:text-[2.9rem]">
               “{positioning.quote}”
             </p>
           </blockquote>
@@ -76,7 +76,7 @@ export default function Positioning() {
                 <img
                   src={images[pillar.imageKey]}
                   alt={pillar.title}
-                  className="h-64 w-full bg-cream/5 object-contain sm:h-72 md:h-80"
+                  className="h-64 w-full rounded-[6px] bg-cream/5 object-contain sm:h-72 md:h-80 md:rounded-[7px] lg:rounded-[8px]"
                 />
                 <div className="flex items-start gap-4 border-t border-cream/10 px-4 py-5 sm:px-6">
                   <PillarDetails pillar={pillar} isActive={i === active} />
@@ -96,7 +96,7 @@ export default function Positioning() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
                   transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  className="aspect-[3/4] w-full rounded-sm border border-gold/25 bg-cream/5 object-contain"
+                  className="aspect-[3/4] w-full rounded-[6px] border border-gold/25 bg-cream/5 object-contain md:rounded-[7px] lg:rounded-[8px]"
                 />
               </AnimatePresence>
             </div>
@@ -114,7 +114,7 @@ export default function Positioning() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-80px' }}
                   transition={{ duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                  className={`flex w-full items-start gap-4 rounded-sm px-4 py-5 text-left transition-all duration-300 md:border md:border-transparent ${
+                  className={`flex w-full items-start gap-4 rounded-[8px] px-4 py-[22px] text-left transition-all duration-300 md:border md:border-transparent ${
                     isActive ? 'md:border-gold/30 md:bg-cream/[0.05]' : 'hover:md:bg-cream/[0.03]'
                   }`}
                 >

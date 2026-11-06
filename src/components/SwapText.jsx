@@ -4,6 +4,7 @@ export default function SwapText({
   icon: Icon,
   iconPosition = 'trailing',
   iconClassName = '',
+  reserveSpace = false,
 }) {
   const hasLeadingIcon = Icon && iconPosition === 'leading'
   const hasTrailingIcon = Icon && iconPosition === 'trailing'
@@ -12,11 +13,12 @@ export default function SwapText({
   // All other SwapText buttons keep the original behavior.
   const isProjectCTA =
     label === "Let's Talk" && hoverLabel === "Start a Project"
+  const usesGridLayout = isProjectCTA || reserveSpace
 
   return (
     <span
       className={
-        isProjectCTA
+        usesGridLayout
           ? 'relative inline-grid items-center justify-center overflow-hidden align-middle leading-none'
           : 'relative inline-flex items-center justify-center overflow-hidden align-middle leading-none'
       }
@@ -24,7 +26,7 @@ export default function SwapText({
       {/* Current label */}
       <span
         className={
-          isProjectCTA
+          usesGridLayout
             ? 'col-start-1 row-start-1 flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 ease-editorial group-hover:-translate-y-full group-hover:opacity-0'
             : 'flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 ease-editorial group-hover:-translate-y-full group-hover:opacity-0'
         }
@@ -37,7 +39,7 @@ export default function SwapText({
       {/* Hover label */}
       <span
         className={
-          isProjectCTA
+          usesGridLayout
             ? 'col-start-1 row-start-1 flex items-center justify-center gap-2 whitespace-nowrap translate-y-full opacity-0 transition-all duration-300 ease-editorial group-hover:translate-y-0 group-hover:opacity-100'
             : 'absolute inset-0 flex items-center justify-center gap-2 whitespace-nowrap translate-y-full opacity-0 transition-all duration-300 ease-editorial group-hover:translate-y-0 group-hover:opacity-100'
         }

@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-cream/10 bg-forest/90 backdrop-blur">
-      <div className="mx-auto flex max-w-content items-center justify-between gap-4 px-6 py-3 md:px-10 lg:min-h-[72px] lg:gap-6 lg:px-0">
+      <div className="mx-auto flex max-w-content items-center justify-between gap-4 px-6 py-3 md:px-10 lg:gap-6 lg:px-0 lg:py-5">
         <a href="#home" aria-label={nav.wordmark} className="shrink-0">
           <Signature textClassName="text-4xl" />
         </a>
@@ -27,7 +27,7 @@ export default function Navbar() {
             href={nav.cta.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="group shrink-0 self-center rounded-sm border border-gold/60 px-6 py-3 font-sans text-base font-bold leading-none text-gold transition-all duration-300 hover:scale-105 hover:bg-gold hover:text-forest hover:shadow-[0_8px_24px_-6px_rgba(212,168,83,0.55)] active:scale-95 lg:mr-0"
+            className="group shrink-0 self-center rounded-[8px] border border-gold/60 px-6 py-[14px] font-sans text-base font-bold leading-none text-gold transition-all duration-300 hover:scale-105 hover:bg-gold hover:text-forest hover:shadow-[0_8px_24px_-6px_rgba(212,168,83,0.55)] active:scale-95 lg:mr-0"
           >
             <SwapText label={nav.cta.label} hoverLabel={nav.cta.hoverLabel} />
           </a>
@@ -35,7 +35,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className="group flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-1.5 rounded-sm lg:hidden"
+          className="group flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-1.5 rounded-[8px] lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
         >
@@ -61,7 +61,7 @@ export default function Navbar() {
             href={nav.cta.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 rounded-sm border border-gold/60 px-7 py-3.5 text-center font-sans text-base font-bold text-gold transition-all duration-300 active:scale-95 active:bg-gold active:text-forest"
+            className="mt-2 rounded-[8px] border border-gold/60 px-7 py-4 text-center font-sans text-base font-bold text-gold transition-all duration-300 active:scale-95 active:bg-gold active:text-forest"
           >
             {nav.cta.label}
           </a>

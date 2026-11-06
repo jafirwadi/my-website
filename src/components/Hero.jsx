@@ -35,7 +35,7 @@ export default function Hero() {
             {hero.roleTitle}
           </motion.p>
 
-          <h1 className="font-serif text-[2.5rem] font-semibold leading-[1.08] text-cream sm:text-[3.2rem] md:text-[3.75rem]">
+          <h1 className="font-serif text-[2.5rem] font-normal leading-[1.08] text-cream sm:text-[3.2rem] md:text-[3.75rem]">
             {hero.headline.map((line, i) => (
               <motion.span key={i} variants={item} className="block balance">
                 {line}
@@ -52,7 +52,7 @@ export default function Hero() {
               href={hero.primaryCta.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2.5 rounded-sm bg-gold px-8 py-4 font-sans text-lg font-bold text-forest transition-all duration-300 ease-editorial hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_12px_32px_-8px_rgba(212,168,83,0.65)] active:scale-95 active:translate-y-0"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-[8px] bg-gold px-8 py-[18px] font-sans text-lg font-bold text-forest transition-all duration-300 ease-editorial hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_12px_32px_-8px_rgba(212,168,83,0.65)] active:scale-95 active:translate-y-0"
             >
               <SwapText
                 label={hero.primaryCta.label}
@@ -63,7 +63,7 @@ export default function Hero() {
             </a>
             <a
               href={hero.secondaryCta.href}
-              className="group inline-flex items-center justify-center gap-2.5 rounded-sm border border-cream/25 px-8 py-4 font-sans text-base font-bold text-cream/85 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:border-gold hover:text-gold active:scale-95 active:translate-y-0"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-[8px] border border-cream/25 px-8 py-[18px] font-sans text-base font-bold text-cream/85 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:border-gold hover:text-gold active:scale-95 active:translate-y-0"
             >
               <SwapText label={hero.secondaryCta.label} hoverLabel={hero.secondaryCta.hoverLabel} icon={ArrowUpRightIcon} />
             </a>
@@ -73,7 +73,7 @@ export default function Hero() {
             {hero.stats.map((stat) => (
               <div key={stat.label} className="flex items-baseline gap-2">
                 <dt className="sr-only">{stat.label}</dt>
-                <dd className="font-serif text-[32px] font-semibold text-cream">{stat.value}</dd>
+                <dd className="font-serif text-[32px] font-normal text-cream">{stat.value}</dd>
                 <dd className="font-sans text-[22px] text-cream/55">{stat.label}</dd>
               </div>
             ))}
@@ -85,7 +85,7 @@ export default function Hero() {
           <img
             src={portrait}
             alt="Tanzim — front-end developer and UI/UX designer"
-            className="aspect-[4/5] w-full rounded-sm border border-gold/20 bg-cream/5 object-cover"
+            className="aspect-[4/5] w-full rounded-[6px] border border-gold/20 bg-cream/5 object-cover md:rounded-[7px] lg:rounded-[8px]"
           />
         </motion.div>
       </motion.div>

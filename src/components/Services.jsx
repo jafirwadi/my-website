@@ -13,7 +13,7 @@ function ServiceDetails({ service }) {
         {service.tag}
       </span>
 
-      <h3 className="mt-5 flex items-center gap-3 font-serif text-[26px] font-semibold text-[#F5EDD8] sm:text-[32px] lg:text-[2.2rem]">
+      <h3 className="mt-5 flex items-center gap-3 font-serif text-[26px] font-normal text-[#F5EDD8] sm:text-[32px] lg:text-[2.2rem]">
         <Icon className="shrink-0 text-gold-deep" width={26} height={26} />
         <span>{service.title}</span>
       </h3>
@@ -47,7 +47,7 @@ function ServiceDetails({ service }) {
 
       <a
         href="#contact"
-        className="group mt-9 inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-8 py-4 font-sans text-base font-bold text-forest transition-all duration-300 ease-editorial hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_10px_30px_-8px_rgba(212,168,83,0.7)] active:scale-95"
+        className="group mt-9 inline-flex items-center justify-center gap-2 rounded-[8px] bg-gold px-8 py-[18px] font-sans text-base font-bold text-forest transition-all duration-300 ease-editorial hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_10px_30px_-8px_rgba(212,168,83,0.7)] active:scale-95"
       >
         <SwapText label={services.cta.label} hoverLabel={services.cta.hoverLabel} icon={ArrowUpRightIcon} />
       </a>
@@ -64,7 +64,7 @@ export default function Services() {
     <section id="services" className="bg-cream-paper px-6 py-24 text-forest md:px-10 md:py-32 lg:px-12">
       <div className="mx-auto max-w-content">
         <p className="font-sans text-[1.125rem] tracking-wide2 text-gold-deep">{services.eyebrow}</p>
-        <h2 className="mt-3 max-w-xl font-serif text-4xl font-semibold md:text-5xl lg:text-6xl">
+        <h2 className="mt-3 max-w-xl font-serif text-4xl font-normal md:text-5xl lg:text-6xl">
           {services.heading}
         </h2>
         <p className="mt-5 max-w-xl font-sans text-[1.125rem] leading-relaxed text-forest/75 lg:text-[1.125rem]">
@@ -84,7 +84,7 @@ export default function Services() {
                   onClick={() => setActive(isActive ? -1 : i)}
                   aria-expanded={isActive}
                   aria-controls={`service-panel-${i}`}
-                  className={`group flex min-h-14 w-full items-center gap-3 rounded-sm border px-4 py-3 text-left transition-all duration-300 sm:gap-4 sm:px-5 sm:py-4 ${
+                  className={`group flex min-h-14 w-full items-center gap-3 rounded-[8px] border px-4 py-[14px] text-left transition-all duration-300 sm:gap-4 sm:px-5 sm:py-[18px] ${
                     isActive
                       ? 'border-gold bg-gold text-[#1B3A2D] shadow-[0_10px_30px_-12px_rgba(212,168,83,0.55)]'
                       : 'border-forest/10 bg-[#1B3A2D] text-[#F5EDD8]/75 hover:border-gold hover:bg-gold hover:text-[#1B3A2D]'
@@ -118,7 +118,7 @@ export default function Services() {
                       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="mt-2 rounded-sm border border-gold-deep/20 bg-[#1B3A2D] p-6 sm:p-8">
+                      <div className="mt-2 rounded-[6px] border border-[#1B3A2D] bg-[#1B3A2D] p-6 sm:rounded-[7px] sm:p-8">
                         <ServiceDetails service={service} />
                       </div>
                     </motion.div>
@@ -141,10 +141,10 @@ export default function Services() {
                   key={service.title}
                   type="button"
                   onClick={() => setActive(i)}
-                  className={`group flex items-center gap-5 rounded-sm border px-6 py-5 text-left transition-all duration-300 ${
+                  className={`group flex items-center gap-5 rounded-sm px-6 py-[22px] text-left transition-all duration-300 min-[900px]:rounded-[8px] ${
                     isActive
-                      ? 'border-gold bg-gold text-[#1B3A2D] shadow-[0_10px_30px_-12px_rgba(212,168,83,0.55)]'
-                      : 'border-[#F5EDD8]/10 bg-[#1B3A2D] text-[#F5EDD8]/75 hover:-translate-y-0.5 hover:border-gold hover:bg-gold hover:text-[#1B3A2D]'
+                      ? 'bg-gold text-[#1B3A2D] shadow-[0_10px_30px_-12px_rgba(212,168,83,0.55)]'
+                      : 'bg-[#1B3A2D] text-[#F5EDD8]/75 hover:-translate-y-0.5 hover:bg-gold hover:text-[#1B3A2D]'
                   }`}
                 >
                   <span className={`font-sans text-[13px] font-semibold ${isActive ? 'text-[#1B3A2D]' : 'text-[#F5EDD8]/60 group-hover:text-[#1B3A2D]'}`}>
@@ -166,7 +166,7 @@ export default function Services() {
             })}
           </div>
 
-          <div className="relative overflow-hidden rounded-sm border border-gold-deep/20 bg-[#1B3A2D] p-8 md:p-10 lg:p-12">
+          <div className="relative overflow-hidden rounded-[6px] border border-[#1B3A2D] bg-[#1B3A2D] p-8 md:rounded-[7px] md:p-10 min-[900px]:rounded-[8px] lg:p-12">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={current.title}
