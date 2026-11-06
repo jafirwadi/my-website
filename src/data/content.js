@@ -141,6 +141,14 @@ export const services = {
       tech: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Node.js'],
     },
     {
+      tag: 'Systems',
+      title: 'Automation',
+      icon: 'workflow',
+      description: 'Connect your website to the tools you already use, so every enquiry gets a fast reply and a clear follow-up. No enquiry waits. No patient or client slips away.',
+      deliverables: ['Instant Enquiry Replies', 'Appointment Reminders', 'Follow-up for Missed Enquiries', 'Review Requests'],
+      tech: ['n8n', 'Zapier', 'Make', 'Custom REST APIs'],
+    },
+    {
       tag: 'Growth',
       title: 'Semantic SEO',
       icon: 'search',
@@ -282,6 +290,47 @@ export const process = {
     { day: 'Days 10–20', title: 'Development', body: 'Approved designs become clean, responsive code — fast performance, semantic SEO and cross-browser support built in.' },
     { day: 'Days 20–23', title: 'Final review', body: 'You test the live site while I run QA across devices, browsers and screen sizes, and handle final adjustments.' },
     { day: 'Day 24+', title: 'Handover', body: 'Your site goes live. You get every source file, documentation, and support for a clean transition.' },
+  ],
+}
+
+export const pricing = {
+  eyebrow: 'Pricing',
+  heading: 'Two packages. No surprises.',
+  intro: 'Clear prices and clear scope. If your project is bigger, tell me and I’ll quote it after a short call.',
+  packages: [
+    {
+      name: 'Launch',
+      price: 'from $1,499',
+      summary: 'A website that earns trust and answers every enquiry.',
+      features: [
+        'Up to 5 pages, custom Figma design, WordPress or Webflow',
+        'SEO foundation and accessibility basics',
+        'Fast on mobile (target 90+ PageSpeed)',
+        'Contact form with an instant confirmation reply and an enquiry alert to you',
+        '3 rounds of changes',
+        'You own the domain, files and accounts',
+      ],
+      exclusions: 'Analytics and Google Business Profile setup, follow-up automations, extra pages ($150 each).',
+      cta: 'Start with Launch',
+      hoverCta: 'Start Getting Leads ASAP',
+    },
+    {
+      name: 'Launch + Follow-Up',
+      price: 'from $2,499',
+      summary: 'A website plus the follow-up that turns enquiries into bookings.',
+      savings: 'Saves about $400 compared to buying them separately.',
+      features: [
+        'Everything in Launch',
+        'Follow-up system: appointment reminders, follow-up for enquiries that did not book, review requests',
+        'Google Analytics and Google Business Profile setup',
+        'A one-page guide for your team',
+        '30 days of support after launch',
+      ],
+      exclusions: 'Extra pages ($150 each), copywriting, tool subscriptions (you pay the tool directly).',
+      cta: 'Choose Launch + Follow-Up',
+      hoverCta: 'Stop Losing Potential Leads',
+      highlighted: true,
+    },
   ],
 }
 

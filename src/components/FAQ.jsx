@@ -10,7 +10,7 @@ export default function FAQ() {
     <section id="faq" className="px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-content">
         <p className="font-sans text-[1.125rem] tracking-wide2 text-gold">Before you reach out</p>
-        <h2 className="mt-3 max-w-xl font-serif text-4xl font-semibold text-cream md:text-5xl">
+        <h2 className="mt-3 max-w-xl font-serif text-4xl font-normal text-cream md:text-5xl">
           Frequently asked questions
         </h2>
 
@@ -22,9 +22,9 @@ export default function FAQ() {
                 <button
                   onClick={() => setOpen(isOpen ? -1 : i)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-6 py-6 text-left"
+                  className="flex w-full items-center justify-between gap-6 rounded-[8px] py-[26px] text-left"
                 >
-                  <span className="font-serif text-[20px] font-medium text-cream sm:text-[24px]">{item.q}</span>
+                  <span className="font-serif text-[20px] font-normal text-cream sm:text-[24px]">{item.q}</span>
                   <span
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold transition-transform duration-300 ${
                       isOpen ? 'rotate-45' : ''

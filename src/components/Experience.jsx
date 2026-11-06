@@ -15,7 +15,7 @@ export default function Experience() {
     <section id="experience" className="bg-cream-paper px-6 py-24 text-forest md:px-10 md:py-32 lg:px-12">
       <div className="mx-auto max-w-content">
         <p className="font-sans text-[1.125rem] tracking-wide2 text-gold-deep">Career so far</p>
-        <h2 className="mt-3 max-w-xl font-serif text-4xl font-semibold md:text-5xl lg:text-6xl">
+        <h2 className="mt-3 max-w-xl font-serif text-4xl font-normal md:text-5xl lg:text-6xl">
           How I got here
         </h2>
 
@@ -36,7 +36,7 @@ export default function Experience() {
               />
 
               <div className="min-w-0">
-                <h3 className="font-serif text-[19px] font-semibold text-forest sm:text-[22px] lg:text-[1.8rem]">{role.role}</h3>
+                <h3 className="font-serif text-[19px] font-normal text-forest sm:text-[22px] lg:text-[1.8rem]">{role.role}</h3>
                 <p className="mt-0.5 font-sans text-[1rem] text-forest/75 lg:text-[1rem]">
                   {role.company} <span className="text-forest/35">·</span> {role.type}
                 </p>

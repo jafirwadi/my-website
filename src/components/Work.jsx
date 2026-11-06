@@ -34,6 +34,11 @@ function ProjectCard({ project, image }) {
   const rotateX = useSpring(useTransform(scrollYProgress, [0, 0.5, 1], [18, 0, -18]), spring)
   const scale = useSpring(useTransform(scrollYProgress, [0, 0.5, 1], [0.94, 1, 0.94]), spring)
   const opacity = useSpring(useTransform(scrollYProgress, [0, 0.5, 1], [0.72, 1, 0.72]), spring)
+  const filter = useTransform(
+    scrollYProgress,
+    [0, 0.22, 0.78, 1],
+    ['blur(14px)', 'blur(0px)', 'blur(0px)', 'blur(14px)'],
+  )
 
   return (
     <div
@@ -42,8 +47,8 @@ function ProjectCard({ project, image }) {
       style={{ perspective: '1100px' }}
     >
       <motion.article
-        style={{ rotateX, scale, opacity, transformStyle: 'preserve-3d', transformOrigin: 'center center' }}
-        className="grid w-full overflow-hidden rounded-md border border-cream/10 bg-forest lg:grid-cols-2"
+        style={{ rotateX, scale, opacity, filter, transformStyle: 'preserve-3d', transformOrigin: 'center center' }}
+        className="portfolio-card grid w-full overflow-hidden rounded-md border border-cream/10 bg-forest lg:rounded-[8px] lg:grid-cols-2"
       >
         <img
           src={image}
@@ -53,7 +58,7 @@ function ProjectCard({ project, image }) {
 
         <div className="flex flex-col justify-start bg-cream/[0.04] p-8 md:p-12">
           <p className="font-sans text-[13px] uppercase tracking-wide2 text-cream/50">{project.tag}</p>
-          <h3 className="mt-3 font-serif text-2xl font-semibold text-cream sm:text-3xl">
+          <h3 className="mt-3 font-serif text-2xl font-normal text-cream sm:text-3xl">
             {project.name}
           </h3>
           <p className="mt-4 max-w-[48ch] font-sans text-[1rem] leading-relaxed text-cream/75">
@@ -68,7 +73,7 @@ function ProjectCard({ project, image }) {
               href={project.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-4 inline-flex w-fit items-center gap-2 rounded-sm border border-gold/60 bg-gold/10 px-[20px] py-[10px] font-sans text-[17px] font-bold text-gold transition-all duration-300 hover:-translate-y-0.5 hover:border-gold hover:bg-gold/15"
+              className="group mt-4 inline-flex w-fit items-center gap-2 rounded-[8px] border border-gold/60 bg-gold/10 px-[20px] py-3 font-sans text-[17px] font-bold text-gold transition-all duration-300 hover:-translate-y-0.5 hover:border-gold hover:bg-gold/15"
             >
               <SwapText label="View live" hoverLabel="Gooo" icon={ArrowUpRightIcon} />
             </a>
@@ -81,12 +86,12 @@ function ProjectCard({ project, image }) {
 
 export default function Work() {
   return (
-    <section id="work" className="px-6 py-24 md:px-10 md:py-32">
+    <section id="work" className="px-6 pt-24 pb-[50px] md:px-10 md:pt-32 md:pb-[50px]">
       <div className="mx-auto max-w-content">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="font-sans text-[1.125rem] tracking-wide2 text-gold">Selected work</p>
-            <h2 className="mt-3 max-w-xl font-serif text-4xl font-semibold text-cream md:text-5xl">
+            <h2 className="mt-3 max-w-xl font-serif text-4xl font-normal text-cream md:text-5xl">
               Projects that speak results
             </h2>
           </div>
@@ -109,7 +114,7 @@ export default function Work() {
             href={social.dribbble}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-3 inline-flex items-center justify-center gap-3 rounded-sm bg-gold px-8 py-4 font-sans text-lg font-bold text-forest transition-all duration-300 ease-editorial hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_12px_32px_-8px_rgba(212,168,83,0.65)] active:scale-95"
+            className="group mt-3 inline-flex items-center justify-center gap-3 rounded-[8px] bg-gold px-8 py-[18px] font-sans text-lg font-bold text-forest transition-all duration-300 ease-editorial hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_12px_32px_-8px_rgba(212,168,83,0.65)] active:scale-95"
           >
             <SwapText label="Dribbble" hoverLabel="View" icon={DribbbleIcon} iconPosition="leading" iconClassName="dribbble-icon-spin" />
           </a>

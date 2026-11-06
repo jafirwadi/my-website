@@ -31,15 +31,15 @@ export default function Testimonials() {
   const SourceIcon = t.source === 'Upwork' ? UpworkIcon : LinkedInIcon
 
   return (
-    <section id="testimonials" className="px-6 py-24 md:px-10 md:py-32 lg:px-12">
+    <section id="testimonials" className="px-6 pt-[50px] pb-24 md:px-10 md:pt-[50px] md:pb-32 lg:px-12">
       <div className="mx-auto max-w-content">
         <p className="font-sans text-[1.125rem] tracking-wide2 text-gold">Built on trust</p>
-        <h2 className="mt-3 max-w-xl font-serif text-4xl font-semibold text-cream md:text-5xl lg:text-6xl">
+        <h2 className="mt-3 max-w-xl font-serif text-4xl font-normal text-cream md:text-5xl lg:text-6xl">
           What it's like to work together
         </h2>
 
         <div
-          className="relative mt-14 grid gap-0 overflow-hidden rounded-md border border-cream/10 bg-cream/[0.04] lg:grid-cols-[1fr_1.3fr]"
+          className="relative mt-14 grid gap-0 overflow-hidden rounded-md border border-cream/10 bg-cream/[0.04] lg:rounded-[8px] lg:grid-cols-[1fr_1.3fr]"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
@@ -70,7 +70,7 @@ export default function Testimonials() {
                 exit={{ opacity: 0, y: -14 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               >
-                <p className="font-serif text-[26px] font-semibold leading-snug text-cream balance sm:text-[32px] lg:text-[42px]">
+                <p className="font-serif text-[26px] font-normal leading-snug text-cream balance sm:text-[32px] lg:text-[42px]">
                   “{t.headline}”
                 </p>
                 <p className="mt-5 max-w-xl font-sans text-[1rem] leading-relaxed text-cream/75 lg:max-w-2xl lg:text-[1rem]">{t.quote}</p>
@@ -110,14 +110,14 @@ export default function Testimonials() {
                 <button
                   onClick={prev}
                   aria-label="Previous testimonial"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-cream/20 text-cream/70 transition-all duration-300 hover:scale-110 hover:border-gold hover:bg-gold/10 hover:text-gold active:scale-95"
+                  className="flex h-9 w-9 items-center justify-center rounded-[8px] border border-cream/20 text-cream/70 transition-all duration-300 hover:scale-110 hover:border-gold hover:bg-gold/10 hover:text-gold active:scale-95"
                 >
                   <ArrowUpRightIcon className="rotate-[-135deg]" />
                 </button>
                 <button
                   onClick={next}
                   aria-label="Next testimonial"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-cream/20 text-cream/70 transition-all duration-300 hover:scale-110 hover:border-gold hover:bg-gold/10 hover:text-gold active:scale-95"
+                  className="flex h-9 w-9 items-center justify-center rounded-[8px] border border-cream/20 text-cream/70 transition-all duration-300 hover:scale-110 hover:border-gold hover:bg-gold/10 hover:text-gold active:scale-95"
                 >
                   <ArrowUpRightIcon className="rotate-45" />
                 </button>

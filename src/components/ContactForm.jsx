@@ -78,7 +78,7 @@ function FormDropdown({ name, label, options, value, onChange, placeholder }) {
         aria-controls={listboxId}
         onClick={() => setOpen((current) => !current)}
         onKeyDown={handleKeyDown}
-        className="flex w-full items-center justify-between rounded-sm border border-[#F5EDD8]/15 bg-[#F5EDD8]/5 px-4 py-3 text-left font-sans text-sm text-[#F5EDD8] transition-colors focus:border-gold-deep focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold"
+        className="flex w-full items-center justify-between rounded-[8px] border border-[#F5EDD8]/15 bg-[#F5EDD8]/5 px-4 py-[14px] text-left font-sans text-sm text-[#F5EDD8] transition-colors focus:border-gold-deep focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold"
       >
         <span className={value ? '' : 'text-[#F5EDD8]/50'}>{value || placeholder}</span>
         <ChevronDownIcon className={`shrink-0 transition-transform duration-200 ${open ? 'rotate-open' : ''}`} />
@@ -95,7 +95,7 @@ function FormDropdown({ name, label, options, value, onChange, placeholder }) {
                 aria-selected={value === option}
                 onMouseEnter={() => setActiveIndex(index)}
                 onClick={() => choose(option)}
-                className={`block w-full rounded-sm px-3 py-2 text-left font-sans text-sm transition-colors ${isActive ? 'bg-gold text-[#1B3A2D]' : 'text-[#F5EDD8] hover:bg-gold hover:text-[#1B3A2D]'}`}
+                className={`block w-full rounded-[8px] px-3 py-3 text-left font-sans text-sm transition-colors ${isActive ? 'bg-gold text-[#1B3A2D]' : 'text-[#F5EDD8] hover:bg-gold hover:text-[#1B3A2D]'}`}
               >
                 {option}
               </button>
@@ -163,7 +163,7 @@ export default function ContactForm() {
     <section id="contact" className="bg-cream-paper px-6 py-24 text-forest md:px-10 md:py-32">
       <div className="mx-auto max-w-content">
         <p className="font-sans text-[1.125rem] tracking-wide2 text-gold-deep">{contactForm.eyebrow}</p>
-        <h2 className="mt-3 max-w-xl font-serif text-4xl font-semibold md:text-5xl">
+        <h2 className="mt-3 max-w-xl font-serif text-4xl font-normal md:text-5xl">
           {contactForm.heading}
         </h2>
         <p className="mt-5 max-w-xl font-sans text-[1.125rem] leading-relaxed text-forest/65">{contactForm.sub}</p>
@@ -191,7 +191,7 @@ export default function ContactForm() {
                 </span>
               )
               return (
-                <div key={row.label} className="group flex items-center justify-between gap-3 rounded-sm border border-[#F5EDD8]/15 bg-[#1B3A2D] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60">
+                <div key={row.label} className="group flex items-center justify-between gap-3 rounded-[8px] border border-[#F5EDD8]/15 bg-[#1B3A2D] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60">
                   {row.href ? (
                     <a href={row.href} target="_blank" rel="noopener noreferrer" className="min-w-0 flex-1">
                       {content}
@@ -205,7 +205,7 @@ export default function ContactForm() {
                       onClick={() => copyContact(row.copyValue, row.label)}
                       aria-label={`Copy ${row.label.toLowerCase()}`}
                       title={copied === row.label ? 'Copied' : `Copy ${row.label.toLowerCase()}`}
-                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm text-[#F5EDD8]/65 transition-colors hover:bg-[#F5EDD8]/10 hover:text-gold-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold"
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] text-[#F5EDD8]/65 transition-colors hover:bg-[#F5EDD8]/10 hover:text-gold-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold"
                     >
                       {copied === row.label ? <CheckIcon /> : <CopyIcon />}
                     </button>
@@ -222,7 +222,7 @@ export default function ContactForm() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#F5EDD8]/20 bg-[#1B3A2D] text-[#F5EDD8]/75 transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:border-gold hover:text-gold hover:shadow-[0_8px_20px_-8px_rgba(156,122,52,0.5)]"
+                  className="flex h-10 w-10 items-center justify-center rounded-[8px] border border-[#F5EDD8]/20 bg-[#1B3A2D] text-[#F5EDD8]/75 transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:border-gold hover:text-gold hover:shadow-[0_8px_20px_-8px_rgba(156,122,52,0.5)]"
                 >
                   <s.icon />
                 </a>
@@ -231,7 +231,7 @@ export default function ContactForm() {
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="rounded-md border border-[#F5EDD8]/15 bg-[#1B3A2D] p-6 md:p-8">
+          <form onSubmit={handleSubmit} className="rounded-[6px] border border-[#F5EDD8]/15 bg-[#1B3A2D] p-6 md:rounded-[7px] md:p-8 lg:rounded-[8px]">
             <input type="hidden" name="_subject" value={`Project brief from ${form.name || 'your website'}`} />
             <label className="hidden" aria-hidden="true">
               Leave this field empty
@@ -318,7 +318,7 @@ export default function ContactForm() {
               type="submit"
               disabled={isSubmitting}
               aria-busy={isSubmitting}
-              className="group mt-6 inline-flex items-center justify-center gap-2.5 rounded-sm bg-gold px-8 py-4 font-sans text-lg font-bold text-[#1B3A2D] transition-all duration-300 ease-editorial hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_12px_32px_-8px_rgba(212,168,83,0.5)] active:scale-95 active:translate-y-0"
+              className="group mt-6 inline-flex items-center justify-center gap-2.5 rounded-[8px] bg-gold px-8 py-[18px] font-sans text-lg font-bold text-[#1B3A2D] transition-all duration-300 ease-editorial hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_12px_32px_-8px_rgba(212,168,83,0.5)] active:scale-95 active:translate-y-0"
             >
               <SwapText label={isSubmitting ? 'Sending...' : contactForm.submitCta.label} hoverLabel={isSubmitting ? 'Sending...' : contactForm.submitCta.hoverLabel} icon={SendIcon} />
             </button>
@@ -351,14 +351,14 @@ export default function ContactForm() {
               exit={{ opacity: 0, y: 10, scale: 0.98 }}
               onClick={(event) => event.stopPropagation()}
             >
-              <h3 id="contact-success-title" className="font-serif text-2xl font-semibold">Thank you!</h3>
+              <h3 id="contact-success-title" className="font-serif text-2xl font-normal">Thank you!</h3>
               <p className="mt-3 font-sans text-lg leading-relaxed text-forest/75">
                 Your message came through. I review every inquiry personally and will be in touch within 24 hours — usually sooner.
               </p>
               <button
                 type="button"
                 onClick={() => setShowSuccess(false)}
-                className="mt-6 rounded-sm bg-gold px-6 py-3 font-sans text-sm font-bold text-forest transition-colors hover:bg-gold-deep"
+                className="mt-6 rounded-[8px] bg-gold px-6 py-[14px] font-sans text-sm font-bold text-forest transition-colors hover:bg-gold-deep"
               >
                 Close
               </button>
